@@ -38,3 +38,6 @@ mergedset <- mergedset[fdv]
 fdv <- fdf[,2]
 colnames(mergedset) <- fdv
 
+#generate and save finalset
+finalset <- aggregate( . ~ activity + subject, data=mergedset, FUN=mean)
+write.table(finalset, file="finalset.txt",row.name=FALSE)
